@@ -7,9 +7,7 @@ int main() {
 	bool tof = false;
 	cout << "This is a calculator. Please type in your operation, then the two operands, with spaces in between. ";
 	do {
-		cin >> operation;
-		cin >> opd1;
-		cin >> opd2;
+		cin >> operation >> opd1 >> opd2;
 		if (operation == "+") {
 			cout << opd1+opd2 << "\n";
 		} else if (operation == "-") {
