@@ -2,12 +2,16 @@
 
 int main() {
 	string operation;
+	string opd1_s;
+	string opd2_s;
+	bool tof = false;
 	double opd1;
 	double opd2;
-	bool tof = false;
 	cout << "This is a calculator. Please type in your operation, then the two operands, with spaces in between. ";
 	do {
-		cin >> operation >> opd1 >> opd2;
+		cin >> operation >> opd1_s >> opd2_s;
+		opd1 = stod(opd1_s);
+		opd2 = stod(opd2_s);
 		if (operation == "+") {
 			cout << opd1+opd2 << "\n";
 		} else if (operation == "-") {
