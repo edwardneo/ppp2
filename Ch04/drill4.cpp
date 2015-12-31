@@ -14,6 +14,13 @@ int main () {
 		}
 		int1 = stoi(sint1);
 		int2 = stoi(sint2);
-		cout << int1 << " " << int2 << "\n";
+
+		if (int1 > int2) {
+			cout << "The smaller value is " << int2 << "\nThe larger value is " << int1 << "\n";
+		} else if (int1 < int2) {
+			cout << "The smaller value is " << int1 << "\nThe larger value is " << int2 << "\n";
+		} else {
+			cout << "The values are equal.\n";
+		}
 	};
 }
