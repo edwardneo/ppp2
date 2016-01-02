@@ -40,9 +40,17 @@ int main () {
 	
 	while (true) {
 		cout << "Type a measurement and a unit (m, cm, in, ft). ";
+		if (meters.size() > 0) {
+			cout << "\nYou may type '|' for the measurement to find out facts about your values and stop the program. ";
+		}
 		cin >> sint1 >> unit;
 		if (sint1 == "|") {
-			break;
+			if (meters.size() > 0) {
+				break;
+			} else {
+				cout << "That is not a valid choice at this time.\n";
+				continue;
+			}
 		}
 		int1 = stod(sint1);
 
@@ -61,7 +69,8 @@ int main () {
 		} else if (int1 == meters[0]) {
 			cout << "That's the smallest number yet!\n";
 		}
+		cout << "\n";
 	};
 
-	cout << "\nThe smallest value is " << meters[0] << " meters.\nThe largest value is " << meters[meters.size()-1] << " meters.\nThe number of values that were inputed is " << meters.size() << " values.\nThe sum of all the values is " << sum(meters) << ".\n";
+	cout << "\n\nThe smallest value is " << meters[0] << " meters.\nThe largest value is " << meters[meters.size()-1] << " meters.\nThe number of values that were inputed is " << meters.size() << " values.\nThe sum of all the values is " << sum(meters) << ".\n";
 }
