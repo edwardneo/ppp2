@@ -37,9 +37,6 @@ int main () {
 	vector<double> meters;
 
 	string unit;
-	constexpr double cmtom = 1.0/100;
-	constexpr double intom = 2.54/100;
-	constexpr double fttom = 12*2.54/100;
 	
 	while (true) {
 		cout << "Type a measurement and a unit (m, cm, in, ft). ";
