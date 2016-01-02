@@ -8,6 +8,29 @@ double sum(const vector<double>& v) {
 	return sumofnum;
 }
 
+bool supportedUnit(string unit) {
+	vector<string> units = {"m", "cm", "in", "ft"};
+
+	for (string i: units) {
+		if (unit == i) {
+			return true;
+		}
+	}
+	return false;
+}
+
+double conversionFactor(string unit) {
+	if (unit == "m") {
+		return 1;
+	} else if (unit == "cm") {
+		return 1.0/100;
+	} else if (unit == "in") {
+		return 2.54/100;
+	} else {
+		return 12*2.54/100;
+	}
+}
+
 int main () {
 	string sint1;
 	double int1;
@@ -25,17 +48,13 @@ int main () {
 			break;
 		}
 		int1 = stod(sint1);
-		if (unit == "cm") {
-			int1 *= cmtom;
-		} else if (unit == "in") {
-			int1 *= intom;
-		} else if (unit == "ft") {
-			int1 *= fttom;
-		} else if (unit != "m"){
-			cout << "That is not a valid measurement.\n";
-			continue;
+
+		if (supportedUnit(unit)) {
+    		meters.push_back(int1 *= conversionFactor(unit));
+		} else {
+    		cout << "That is not a valid measurement.\n";
+    		continue;
 		}
-		meters.push_back(int1);
 		sort(meters);
 
 		cout << "The smallest number so far is " << meters[0] << " meters. The largest number so far is " << meters[meters.size()-1] << " meters. Your number is " << int1 << " meters.\n";		
@@ -46,7 +65,6 @@ int main () {
 			cout << "That's the smallest number yet!\n";
 		}
 	};
-	vector<double> v;
-	double s = sum(v);
+
 	cout << "\nThe smallest value is " << meters[0] << " meters.\nThe largest value is " << meters[meters.size()-1] << " meters.\nThe number of values that were inputed is " << meters.size() << " values.\nThe sum of all the values is " << sum(meters) << ".\n";
 }
