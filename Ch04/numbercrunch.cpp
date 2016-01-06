@@ -9,8 +9,7 @@ double sum(const vector<double>& v) {
 }
 
 double median(const vector<double>& v) {
-	int check = v.size()%2;
-	if (check == 0) {
+	if (v.size()%2 == 0) {
 		return (v[v.size()/2-1]+v[v.size()/2])/2;
 	} else  {
 		return v[(v.size()-1)/2];
